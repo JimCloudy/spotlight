@@ -1,0 +1,25 @@
+<%= form_for(@writeup) do |f| %>
+  <% if @writeup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@writeup.errors.count, "error") %> prohibited this writeup from being saved:</h2>
+
+      <ul>
+      <% @writeup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Employee Name" %><br />
+    <%= f.collection_select(:employee_id, Employee.all, :id, :full_name, :include_blank=>true) %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

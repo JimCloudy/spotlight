@@ -1,0 +1,23 @@
+<h1>Listing writeups</h1>
+
+<table>
+  <tr>
+    <th>Employee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @writeups.each do |writeup| %>
+  <tr>
+    <td><%= writeup.employee.full_name %></td>
+    <td><%= link_to 'Show', writeup %></td>
+    <td><%= link_to 'Edit', edit_writeup_path(writeup) %></td>
+    <td><%= link_to 'Destroy', writeup, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Writeup', new_writeup_path %>

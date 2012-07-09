@@ -1,0 +1,30 @@
+<h1>Editing writeup</h1>
+
+<%= form_for(@writeup) do |f| %>
+  <% if @writeup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@writeup.errors.count, "error") %> prohibited this writeup from being saved:</h2>
+
+      <ul>
+      <% @writeup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  	<p>Employee Name</p>
+	<p><%= @writeup.employee.full_name %></p>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @writeup %> |
+<%= link_to 'Back', writeups_path %>

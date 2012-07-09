@@ -1,0 +1,38 @@
+<div class="employee">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First Name:</b>
+  <%= @employee.f_name %>
+</p>
+
+<p>
+  <b>Last Name:</b>
+  <%= @employee.l_name %>
+</p>
+
+<p>
+  <b>Dept:</b>
+  <%= @employee.department.title %>
+</p>
+
+<p>
+  <b>Ext:</b>
+  <%= @employee.ext %>
+</p>
+
+<div class="bio">
+	<% if @employee.writeup %>
+		<p><%= @employee.writeup.bio %></p>
+	<% end %>
+</div>
+
+<% @employee.photos.each do |photo| %>
+	<img class="smallpic" src="..\assets\<%=photo.url%>" alt="Photo of <%=@employee.full_name%>"/>
+<% end %>
+
+<br/>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
+</div>
